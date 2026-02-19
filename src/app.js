@@ -2,6 +2,9 @@ import express from "express";
 import process from "node:process";
 import cors from "cors";
 
+import { ApiResponse } from "./utils/apiResponse.js";
+import { errorHandler } from "./middlewares/error.middlewares.js";
+
 function startApp() {
   const app = express();
 
@@ -26,9 +29,17 @@ function startApp() {
     }),
   );
 
+  // Health check endpoint
+  app.get("/api/health", (req, res) => {
+    return res.status(200).json(new ApiResponse(200));
+  });
+
   app.get("/", (req, res) => {
     res.send("API running");
   });
+
+  // Error handling middleware
+  app.use(errorHandler);
 
   return app;
 }
