@@ -1,7 +1,7 @@
 import express from "express";
 import process from "node:process";
 import cors from "cors";
-
+import { createRouter } from "./routes/index.js";
 import { ApiResponse } from "./utils/apiResponse.js";
 import { errorHandler } from "./middlewares/error.middlewares.js";
 
@@ -33,6 +33,9 @@ function startApp() {
   app.get("/api/health", (req, res) => {
     return res.status(200).json(new ApiResponse(200));
   });
+
+  // API routes
+  app.use("/api", createRouter());
 
   app.get("/", (req, res) => {
     res.send("API running");

@@ -7,9 +7,9 @@ Phase 1:
 
 Phase 2:
 Create Backend
-[] Create Routes, model, controller
+[x] Create Routes, model, controller
 [x] Setup MongoDB
-[] Setup Auth
+[x] Setup Auth
 [] Task CRUD
 
 Phase 3:
