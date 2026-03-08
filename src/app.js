@@ -8,7 +8,7 @@ import { errorHandler } from "./middlewares/error.middlewares.js";
 function startApp() {
   const app = express();
 
-  //disabe x powered by from express
+  //disable x powered by from express
   app.disable("x-powered-by");
 
   //CORS settings
